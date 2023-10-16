@@ -1,0 +1,44 @@
+<p>data-binding works!</p>
+<p>pls refere data-binding.component.hmtl file for how to use different selectors in teamplate (commented)</p>
+<!--
+how to use selectors in the html
+
+1. As Tag
+ in TS selector: 'app-data-binding'
+ in html : <app-data-binding></app-data-binding>
+
+ 2. As Attribute
+ in TS selector: '[app-data-binding]'
+ in html : <div app-data-binding></div>
+
+ 3. As Class
+ in class selector: '.app-data-binding'
+ in html : <div class="app-data-binding></div>
+-->
+
+<h3>One way Data Binding</h3>
+<p>Interpolation : {{firstName}}</p>
+
+
+
+<p>Property Binding: </p>
+<img alt="photo" [src] = "imageUrl"><br>
+<a href="https://angular.io/guide/property-binding">https://angular.io/guide/property-binding</a>
+<p>loop through Array and display images through property binding</p>
+<ul >
+    <li *ngFor="let img of imageArr"><img alt="ph" [src]="img"></li>
+</ul>
+
+
+<!--[style.style-property] = "style-value"-->
+<p>Angular Style binding</p>
+<p>style color red through component variable: [style.color]="color"</p>
+<p [style.color]="color">This is red</p>
+<p [style.background-color]="'grey'">some paragraph with grey background</p>
+<button [style.border]="'5px solid yellow'">Save</button>
+<button [style.color]="status=='error' ? 'red': 'blue'">Button 1</button> 
+<p [style.color]="getColor()"> getColor function called to get the color and display p text</p>
+
+
+<h3>Event Binding</h3>
+<button (click)="alertMe()">Click me (Event Binding)</button>
