@@ -1,5 +1,5 @@
 <p>data-binding works!</p>
-<p>pls refere data-binding.component.hmtl file for how to use different selectors in teamplate (commented)</p>
+<p>pls refer data-binding.component.hmtl file for how to use different selectors in teamplate (commented)</p>
 <!--
 how to use selectors in the html
 
@@ -30,15 +30,28 @@ how to use selectors in the html
 </ul>
 
 
-<!--[style.style-property] = "style-value"-->
+<!--[style.style-property] = "style-value
+    
+The brackets, [], cause Angular to evaluate the right-hand side of the assignment as a dynamic expression.
+
+Without the brackets, Angular treats the right-hand side as a string literal and sets the property to that static value.
+"-->
 <p>Angular Style binding</p>
 <p>style color red through component variable: [style.color]="color"</p>
 <p [style.color]="color">This is red</p>
 <p [style.background-color]="'grey'">some paragraph with grey background</p>
 <button [style.border]="'5px solid yellow'">Save</button>
+<button [disabled]="true">I'm Disabled by property Binding</button>
 <button [style.color]="status=='error' ? 'red': 'blue'">Button 1</button> 
 <p [style.color]="getColor()"> getColor function called to get the color and display p text</p>
 
+<!--
+ To bind an Event to a particular function we use Event Binding
+ Say an Event Click happens we call alertMe() function
 
+ The event binding listens for the button's click events and calls the component's 
+ onSave() method whenever a click occurs
+-->
 <h3>Event Binding</h3>
 <button (click)="alertMe()">Click me (Event Binding)</button>
+

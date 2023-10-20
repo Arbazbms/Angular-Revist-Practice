@@ -1,0 +1,66 @@
+<p>angular-directives works!</p>
+<!--
+The Directive is the class that adds additional behaviour to the HTML element in the Angular application.
+Angular provides many built-in directives that help us to manage the style, lists, 
+and change the DOM layout. In this article, I will talk about the NgClass and NgStyle built-in attribute 
+directives that help us to manage the style based on condition.
+
+Adding and removing style classes with NgClass
+The NgClass directive binds multiple CSS classes to the HTML element dynamically.
+It assigned/ removed the class value to the element based on the condition. 
+You can use either the expression or method with NgClass directive.
+
+Using Expression
+You cannot write if condition with the ngClass directive but you need to use the ternary operator 
+as this is an expression.
+
+syntax: 
+[ngClass]="Condition ? 'apply class if true' : 'apply class if false'"
+
+-->
+
+
+
+<!--
+1. Using Expression : 
+
+You cannot write if condition with the ngClass directive but you need to use the ternary operator as 
+this is an expression.
+-->
+<h2> changes box color based on radion button select</h2>
+<input type="radio" value="g" name="color" (change)="handleChange('g')">
+<label>Green</label><br>
+<input type="radio" value="v" name="color" (change)="handleChange('b')">
+<label>Blue</label>
+<div [ngClass]="isGreen ? 'green' : 'blue'"></div>
+
+
+<!--
+Using Method/Function: 
+You can apply CSS class through method in case of complex conditions. For example,
+based on user input, if you want to set CSS class then you can use it this way. 
+
+In the following example, if user enters value 0-50 then 'low' class is applied, 
+if user enters value 51-80 then 'medium' class is applied else 'high' class is applied to the 
+div element
+-->
+
+<h2>Type Number and will display box color according to range (0-100)</h2>
+<input type="number" min="0" max="100" [(ngModel)]="selectedvalue">
+<div [ngClass]="returnColorBasedOnRange()"></div>
+
+
+<!--
+NgStyle
+The NgStyle directive allows you to set style property of the DOM Element.
+You can assign style to the element like string and you can also add condition inside the string.
+
+In the following example, based on checkbox check, "font-style" and "font-weight" CSS are applied
+to the span element
+-->
+
+<h2>CheckBox to change the text style using ngModel and ngStyle</h2>
+<input type="checkbox" [(ngModel)]="isBold"/>Bold <br>
+<input type="checkbox" [(ngModel)]="isItalic"/>Italic   
+<p [ngStyle]="{'font-style': isItalic ? 'italic' : 'normal', 'font-weight': isBold ? 'bold' : 'normal'}">I'm a font dynamic Text</p>
+
